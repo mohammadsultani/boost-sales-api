@@ -1,0 +1,9 @@
+USER_NAME=AcesoftwareAPI
+PASSWORD=AcesoftwareAPI1234
+AUTH_TYPE=U
+TOKEN_LINK=https://boostthailand.redcatcloud.com.au/api/v1/login
+SALES_LINK=https://boostthailand.redcatcloud.com.au/api/v1/reports/kpi/salesby
+OUTPUT_DIRECTORY=./
+STORE_ID=1386
+MACHINE_ID=999_999_
+LAST_RUN_DATE=2025-12-29

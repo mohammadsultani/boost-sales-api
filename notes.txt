@@ -1,0 +1,138 @@
+The program use the settings parameters to make successfull request.
+After each run, the details will be recorded logs.txt
+This Program needs settings.txt and BOOST_SALES_DATA.exe in the same folder to work.
+
+settings.txt Content: 
+
+USER_NAME=AcesoftwareAPI
+PASSWORD=AcesoftwareAPI1234
+AUTH_TYPE=U
+TOKEN_LINK=https://boostthailand.redcatcloud.com.au/api/v1/login
+SALES_LINK=https://boostthailand.redcatcloud.com.au/api/v1/reports/kpi/salesby
+OUTPUT_DIRECTORY=./
+STORE_ID=1386
+MACHINE_ID=999_999_
+LAST_RUN_DATE=2025-12-29
+
+
+Account details:
+
+https://boostthailand.redcatcloud.com.au/admin
+https://boostthailand.redcatcloud.com.au/api-documentation/
+
+Username: AcesoftwareAPI
+Password: AcesoftwareAPI1234
+
+The output fill will be zipped and locked with the following password.
+ZIP file password: ~ja19co65
+
+The program will fetch yesterday sales by default. 
+Additional dates can be added too eg: 2025-12-25 or if range, 2025-12-10,2025-12-20
+
+Last run date will be stored in settings file. If the the last date is not yesterday, the program will fetch the missing dates within 30 days.
+
+An API sandbox environment is insomnia.
+An email chain can be used for reference too.
+
+
+Notes about the data:
+
+- Quantity = Gross Amount / Gross Price
+  (This gives the number of items sold.)
+
+- Transaction count is **not** the same as quantity.
+
+- Gross Price and Price are the same.
+
+- GST is the total tax for the entire row (includes quantity).
+
+- Gross Price = price per unit **including** tax.
+
+- Net Price = price per unit **excluding** tax.
+
+- Gross Amount = total paid for the item (quantity × unit price including tax).
+
+- Net Amount = total paid excluding tax (quantity × net price).
+
+- Amount and Net Amount are the same.
+
+- To get the total bill, use the Gross Amount
+
+- Discount of the bill will be a line item with CategoryName = POS Discounts
+
+
+There are two APIs which we can use to get sales data:
+
+First one is sales by item which has the details of the item sold. 
+This API has no payment type details.
+
+The other one is sales media.
+This API gives total sales for an outlet for a specific date.
+The total sales is broken down by payment type. But it is a total figure for the day eg: Cash: 2000.
+
+
+Sales Media type API: https://boostthailand.redcatcloud.com.au/api/private/reports/kpi/salesmedia  (not included in the online docs)
+{
+ "TxnDateFrom": "2025/12/25",
+  "TxnDateTo":   "2025/12/25",
+  "MediaType": [
+    "all"
+  ],
+	"LocationID":1386,
+  "AreaSummary": true,
+  "MediaSummary": true
+}
+
+Data fields for each item in the bill:
+
+"POSSaleType",
+"POSSaleTypeDesc",
+"InputTypeLabel",
+"InputType",
+"SaleID",
+"PLUItem",
+"GrossAmount",
+"StoreName",
+"UserName",
+"CategoryName",
+"CategoryID",
+"POSSectionName",
+"TerminalEnteredID",
+"TerminalEnteredName",
+"ClassName",
+"BrandName",
+"TxnHour",
+"PLUCode",
+"TerminalFinalisedName",
+"Amount",
+"BundlePrice",
+"GrossPrice",
+"NetPrice",
+"Sold",
+"HeaderBitMask",
+"ClassID",
+"POSAreaID",
+"LastUpdate",
+"LineID",
+"UserID",
+"BundleID",
+"PLUID",
+"NetAmount",
+"POSSectionID",
+"POSAreaName",
+"ParentPLUCode",
+"ParentPLUID",
+"Price",
+"HeaderID",
+"TxnTime",
+"SaleTypeID",
+"RealTimeTxn",
+"StoreID",
+"TxnDate",
+"TxnCount",
+"TxnDateTime",
+"TerminalFinalisedID",
+"UTCLastUpdate",
+"TxnFifteenMinute",
+"TxnHalfHour",
+"GST",

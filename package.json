@@ -1,0 +1,20 @@
+{
+  "name": "boost-sales-data",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "pkg index.js --output BOOST_SALES_DATA.exe --targets node18-win-x64"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "archiver": "^7.0.1",
+    "archiver-zip-encrypted": "^2.0.0",
+    "axios": "^0.21.4"
+  },
+  "engines": {
+    "node": "^18.0.0"
+  }
+}
