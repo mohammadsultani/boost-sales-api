@@ -31,6 +31,8 @@ Additional dates can be added too eg: 2025-12-25 or if range, 2025-12-10,2025-12
 
 Last run date will be stored in settings file. If the the last date is not yesterday, the program will fetch the missing dates within 30 days.
 
+The exe is built with node v18.16.0, axios version is 0.21.4, Only this version of axios is working well with pkg
+
 An API sandbox environment is insomnia.
 An email chain can be used for reference too.
 
