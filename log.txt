@@ -1,67 +1,11 @@
-12/29/2025, 2:54:21 PM - The program started running.
+1/31/2026, 9:50:56 AM - The program started running.
 
-12/29/2025, 2:54:21 PM - Preparing to fetch sales data for the following dates:
-2025-11-29, 2025-11-30, 2025-12-01, 2025-12-02, 2025-12-03, 2025-12-04, 2025-12-05, 2025-12-06, 2025-12-07, 2025-12-08, 2025-12-09, 2025-12-10, 2025-12-11, 2025-12-12, 2025-12-13, 2025-12-14, 2025-12-15, 2025-12-16, 2025-12-17, 2025-12-18, 2025-12-19, 2025-12-20, 2025-12-21, 2025-12-22, 2025-12-23, 2025-12-24, 2025-12-25, 2025-12-26, 2025-12-27, 2025-12-28
+1/31/2026, 9:50:56 AM - Preparing to fetch sales data for the following dates:
+2026-01-28, 2026-01-30
 
-12/29/2025, 2:54:22 PM - Sales data fetched successfully for 2025-11-29. (Number of Bills: 140)
+1/31/2026, 9:50:57 AM - Sales data fetched successfully for 2026-01-28. (Number of Bills: 73)
 
-12/29/2025, 2:54:23 PM - Sales data fetched successfully for 2025-11-30. (Number of Bills: 113)
+1/31/2026, 9:50:57 AM - Sales data fetched successfully for 2026-01-30. (Number of Bills: 128)
 
-12/29/2025, 2:54:24 PM - Sales data fetched successfully for 2025-12-01. (Number of Bills: 70)
-
-12/29/2025, 2:54:25 PM - Sales data fetched successfully for 2025-12-02. (Number of Bills: 85)
-
-12/29/2025, 2:54:26 PM - Sales data fetched successfully for 2025-12-03. (Number of Bills: 79)
-
-12/29/2025, 2:54:27 PM - Sales data fetched successfully for 2025-12-04. (Number of Bills: 89)
-
-12/29/2025, 2:54:28 PM - Sales data fetched successfully for 2025-12-05. (Number of Bills: 96)
-
-12/29/2025, 2:54:29 PM - Sales data fetched successfully for 2025-12-06. (Number of Bills: 120)
-
-12/29/2025, 2:54:30 PM - Sales data fetched successfully for 2025-12-07. (Number of Bills: 109)
-
-12/29/2025, 2:54:31 PM - Sales data fetched successfully for 2025-12-08. (Number of Bills: 67)
-
-12/29/2025, 2:54:32 PM - Sales data fetched successfully for 2025-12-09. (Number of Bills: 69)
-
-12/29/2025, 2:54:34 PM - Sales data fetched successfully for 2025-12-10. (Number of Bills: 86)
-
-12/29/2025, 2:54:35 PM - Sales data fetched successfully for 2025-12-11. (Number of Bills: 56)
-
-12/29/2025, 2:54:36 PM - Sales data fetched successfully for 2025-12-12. (Number of Bills: 75)
-
-12/29/2025, 2:54:37 PM - Sales data fetched successfully for 2025-12-13. (Number of Bills: 89)
-
-12/29/2025, 2:54:38 PM - Sales data fetched successfully for 2025-12-14. (Number of Bills: 104)
-
-12/29/2025, 2:54:39 PM - Sales data fetched successfully for 2025-12-15. (Number of Bills: 62)
-
-12/29/2025, 2:54:40 PM - Sales data fetched successfully for 2025-12-16. (Number of Bills: 81)
-
-12/29/2025, 2:54:41 PM - Sales data fetched successfully for 2025-12-17. (Number of Bills: 78)
-
-12/29/2025, 2:54:42 PM - Sales data fetched successfully for 2025-12-18. (Number of Bills: 84)
-
-12/29/2025, 2:54:43 PM - Sales data fetched successfully for 2025-12-19. (Number of Bills: 77)
-
-12/29/2025, 2:54:44 PM - Sales data fetched successfully for 2025-12-20. (Number of Bills: 87)
-
-12/29/2025, 2:54:45 PM - Sales data fetched successfully for 2025-12-21. (Number of Bills: 100)
-
-12/29/2025, 2:54:46 PM - Sales data fetched successfully for 2025-12-22. (Number of Bills: 66)
-
-12/29/2025, 2:54:47 PM - Sales data fetched successfully for 2025-12-23. (Number of Bills: 73)
-
-12/29/2025, 2:54:48 PM - Sales data fetched successfully for 2025-12-24. (Number of Bills: 88)
-
-12/29/2025, 2:54:49 PM - Sales data fetched successfully for 2025-12-25. (Number of Bills: 104)
-
-12/29/2025, 2:54:50 PM - Sales data fetched successfully for 2025-12-26. (Number of Bills: 92)
-
-12/29/2025, 2:54:51 PM - Sales data fetched successfully for 2025-12-27. (Number of Bills: 101)
-
-12/29/2025, 2:54:53 PM - Sales data fetched successfully for 2025-12-28. (Number of Bills: 116)
-
-12/29/2025, 2:54:53 PM - The program finished running.
+1/31/2026, 9:50:57 AM - The program finished running.
 

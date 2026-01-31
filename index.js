@@ -95,7 +95,7 @@ const getToken = async () => {
       auth_type: authType,
     });
 
-    // console.log("response ---> ", response.data);
+    // console.log("response token ---> ", response.data);
     if (response.data.success && response.data.token) {
       return (token = response.data.token);
     }
@@ -117,7 +117,7 @@ const apiCall = async (start, date) => {
         Constraints: {
           Operator: "and",
           Value: [
-            { Field: "StoreID", Condition: "==", Value: ["1386"] },
+            { Field: "StoreID", Condition: "==", Value: [storeCode] },
             { Field: "Date", Condition: "==", Value: [date] },
           ],
         },
@@ -138,7 +138,7 @@ const apiCall = async (start, date) => {
     // );
     return response.data;
   } catch (error) {
-    console.error("API call error:", error);
+    // console.error("API call error:", error);
     throw error;
   }
 };
@@ -149,7 +149,7 @@ const getSalesData = async (date) => {
     // date = "2025/12/25";
     await getToken();
     const response = await apiCall(0, date);
-    // console.log(" ----- here response ---- ", response);
+    // console.log(" ----- Sales response ---- ", response);
     if (response.success) {
       if (response.count === 0) {
         console.log(`No sales records available for ${date}`);
