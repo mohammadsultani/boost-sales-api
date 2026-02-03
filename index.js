@@ -263,7 +263,7 @@ const outputFile = async (data, date) => {
           qty +
           "\t" +
           grossAmount.toFixed(2) +
-          "\tN/A".repeat(7) +
+          "\tN/A".repeat(8) +
           "\t" +
           Number(r[IDX.GST] || 0).toFixed(2) +
           "\n";
