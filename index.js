@@ -273,6 +273,7 @@ const outputFile = async (data, date) => {
           "\tN/A".repeat(8) +
           "\t" +
           Number(r[IDX.GST] || 0) +
+          "\t\t" +
           "\n";
       });
 

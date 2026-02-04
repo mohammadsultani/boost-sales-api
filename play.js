@@ -11,7 +11,7 @@ const path = require("path");
 
 */
 
-const date = "468_008_260131212501";
+const date = "new-26";
 const filePath = path.join(__dirname, "test", date + ".RCZ");
 
 let totalSales = 0;
