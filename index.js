@@ -89,11 +89,17 @@ let storeCode,
 
 const getToken = async () => {
   try {
-    const response = await axios.post(tokenLink, {
-      username: userName,
-      psw: password,
-      auth_type: authType,
-    });
+    const response = await axios.post(
+      tokenLink,
+      {
+        username: userName,
+        psw: password,
+        auth_type: authType,
+      },
+      {
+        timeout: 2 * 60 * 1000, // 2 min
+      },
+    );
 
     // console.log("response token ---> ", response.data);
     if (response.data.success && response.data.token) {
@@ -126,11 +132,12 @@ const apiCall = async (start, date) => {
         Limit: 1000,
       },
       {
+        timeout: 2 * 60 * 1000, // 2 min
         headers: {
           "Content-Type": "application/json",
           "X-Redcat-Authtoken": token,
         },
-      }
+      },
     );
     // console.log(
     //   "API call response ---> ",
@@ -216,7 +223,7 @@ const outputFile = async (data, date) => {
       // Total bill = sum of GrossAmount (items + discounts)
       const totalBill = rows.reduce(
         (sum, r) => sum + Number(r[IDX.GrossAmount] || 0),
-        0
+        0,
       );
 
       /* ========== BILL HEADER (1) ========== */
@@ -228,7 +235,7 @@ const outputFile = async (data, date) => {
         "\t" +
         timeSec +
         "\tN/A\t" +
-        totalBill.toFixed(2) +
+        totalBill +
         "\tN/A".repeat(8) +
         "\n";
 
@@ -248,9 +255,9 @@ const outputFile = async (data, date) => {
           categoryName.toLowerCase().includes("voucher")
             ? "VOUCHER"
             : itemName.toLowerCase().includes("discount") ||
-              categoryName.toLowerCase().includes("discount")
-            ? "Discount"
-            : itemName;
+                categoryName.toLowerCase().includes("discount")
+              ? "Discount"
+              : itemName;
 
         content +=
           "2\t" +
@@ -262,10 +269,10 @@ const outputFile = async (data, date) => {
           "\t" +
           qty +
           "\t" +
-          grossAmount.toFixed(2) +
+          grossPrice +
           "\tN/A".repeat(8) +
           "\t" +
-          Number(r[IDX.GST] || 0).toFixed(2) +
+          Number(r[IDX.GST] || 0) +
           "\n";
       });
 
@@ -274,7 +281,7 @@ const outputFile = async (data, date) => {
         "3\t" +
         billID +
         "\t1\tN/A\t" +
-        totalBill.toFixed(2) +
+        totalBill +
         "\tN/A\tCASH" +
         "\tN/A".repeat(8) +
         "\n";
@@ -311,14 +318,13 @@ const outputFile = async (data, date) => {
 
     const fileName = machineID + fileDate + hour + minutes + seconds; //+ ".RCZ";
 
-    // console.log(`Total bills processed for ${date}: ${billCount}`);
-    // logMessage(`Total bills processed for ${date}: ${billCount}`);
+    // for testing
+    // fs.writeFileSync(outputDirectory + `${fileName}.RCZ`, content);
 
     const output = fs.createWriteStream(outputDirectory + `${fileName}.ZIP`);
-
     const archive = archiver.create("zip-encrypted", {
       zlib: { level: 8 },
-      encryptionMethod: "zip20", // the other option more secure option is 'aes256', but not fully supported
+      encryptionMethod: "zip20", // the other more secure option is 'aes256', but not fully supported
       password: "~ja19co65",
     });
 
@@ -337,7 +343,6 @@ const outputFile = async (data, date) => {
 
     // Finalize
     await archive.finalize();
-
     return "SUCCESS";
   } catch (error) {
     throw error;
@@ -497,7 +502,7 @@ const readSettingsAndComputeDates = async () => {
     logMessage(
       "Preparing to fetch sales data for the following dates:\n" +
         datesToFetch.join(", ") +
-        "\n"
+        "\n",
     );
 
     // console.log("Dates to fetch:", datesToFetch);
@@ -513,10 +518,10 @@ const readSettingsAndComputeDates = async () => {
           const result = await getSalesData(date);
           if (result === "NO_SALES") continue;
           logMessage(
-            `Sales data fetched successfully for ${date}. (Number of Bills: ${numberOfBills})\n`
+            `Sales data fetched successfully for ${date}. (Number of Bills: ${numberOfBills})\n`,
           );
           console.log(
-            `Sales data fetched successfully for ${date}. (Number of Bills: ${numberOfBills})`
+            `Sales data fetched successfully for ${date}. (Number of Bills: ${numberOfBills})`,
           );
         } catch (error) {
           console.error(`Failed to fetch data for ${date}`);
@@ -532,7 +537,7 @@ const readSettingsAndComputeDates = async () => {
     if (failedSalesDate.length) {
       console.log("\nDates that failed to fetch sales data:", failedSalesDate);
       logMessage(
-        `Dates that failed to fetch sales data: ${failedSalesDate.join(", ")}\n`
+        `Dates that failed to fetch sales data: ${failedSalesDate.join(", ")}\n`,
       );
     } else {
       console.log("\nAll dates fetched successfully.");

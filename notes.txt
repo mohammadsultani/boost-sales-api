@@ -2,6 +2,9 @@ The program use the settings parameters to make successfull request.
 After each run, the details will be recorded logs.txt
 This Program needs settings.txt and BOOST_SALES_DATA.exe in the same folder to work.
 
+04/02/2026 - After some issue in testing, we moved to grab the unit price (GrossPrice) for each item. 
+Here is the calculation done by parser program - totalSales += salesValue * qty - taxValue;
+
 settings.txt Content: 
 
 USER_NAME=AcesoftwareAPI

@@ -2,18 +2,22 @@ const fs = require("fs");
 const path = require("path");
 
 /* 
-  138_600_260126171233.RCZ  138_600_260129171236.RCZ  468_008_260126214707.RCZ  468_008_260129213335.RCZ
-  138_600_260127171234.RCZ  138_600_260130171237.RCZ  468_008_260127220144.RCZ  468_008_260130210555.RCZ
-  138_600_260128171235.RCZ  138_600_260131171238.RCZ  468_008_260128203900.RCZ  468_008_260131212501.RCZ
-  999_999_260126135026.RCZ
+  138_600_260126171233.RCZ  468_008_260126214707.RCZ  999_999_260126102311.RCZ
+  138_600_260127171234.RCZ  468_008_260127220144.RCZ  999_999_260127102312.RCZ
+  138_600_260128171235.RCZ  468_008_260128203900.RCZ  999_999_260128102314.RCZ
+  138_600_260129171236.RCZ  468_008_260129213335.RCZ  999_999_260129102314.RCZ
+  138_600_260130171237.RCZ  468_008_260130210555.RCZ  999_999_260130102315.RCZ
+  138_600_260131171238.RCZ  468_008_260131212501.RCZ  999_999_260131102316.RCZ
+
 */
 
-const date = "999_999_260126135026";
+const date = "468_008_260131212501";
 const filePath = path.join(__dirname, "test", date + ".RCZ");
 
 let totalSales = 0;
 let totalTax = 0;
 let billCount = 0;
+let qty = [];
 
 const content = fs.readFileSync(filePath, "utf8");
 const lines = content.split(/\r?\n/);
@@ -32,11 +36,11 @@ for (const line of lines) {
   // -------------------------
   if (rowType === "3") {
     billCount++;
-    const salesValue = Number(columns[4]); // COL5
+    //   const salesValue = Number(columns[4]); // COL5
 
-    if (!isNaN(salesValue)) {
-      totalSales += salesValue; // handles negatives naturally
-    }
+    // if (!isNaN(salesValue)) {
+    //   totalSales += salesValue; // handles negatives naturally
+    // }
   }
 
   // -------------------------
@@ -44,7 +48,24 @@ for (const line of lines) {
   // COL15 = TAX RM
   // -------------------------
   if (rowType === "2") {
+    // Log the qty
+    // console.log(columns[4])
+    // qty.push(columns[4]);
+
+    // if (columns[1] == "11004911") {
+    //   console.log("not included ------>", columns[1]);
+    //   return;
+    // }
+
+    const qty = columns[4];
+
+    const salesValue = Number(columns[5]); // COL5
     const taxValue = Number(columns[14]); // COL15
+
+    if (!isNaN(salesValue)) {
+      totalSales += salesValue * qty - taxValue; // handles negatives naturally
+    }
+
     if (!isNaN(taxValue)) {
       totalTax += taxValue; // handles negatives naturally
     }
@@ -55,7 +76,8 @@ console.log("File:", date);
 console.log("Bill count:", billCount);
 console.log("Total sales:", totalSales.toFixed(2));
 console.log("Total tax:", totalTax.toFixed(2));
-
+// console.log("Total sales (net):", (totalSales - totalTax).toFixed(2));
+// console.log("Qty array:", JSON.stringify(qty));
 /*
   468 files:
   File: 468_008_260126214707
@@ -118,6 +140,7 @@ console.log("Total tax:", totalTax.toFixed(2));
   Bill count: 174
   Total sales: 1289.15
   Total tax: 106.39
+
 
 
 
