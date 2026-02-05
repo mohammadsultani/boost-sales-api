@@ -3,9 +3,6 @@ const fs = require("fs");
 const archiver = require("archiver");
 const zipEncrypted = require("archiver-zip-encrypted");
 
-// const tokenLink = "https://boostthailand.redcatcloud.com.au/api/v1/login";
-// const salesDataLink =
-//   "https://boostthailand.redcatcloud.com.au/api/v1/reports/kpi/salesby";
 const fields = [
   "SaleID",
   "PLUItem",
@@ -15,49 +12,6 @@ const fields = [
   "GrossPrice",
   "TxnDateTime",
   "GST",
-
-  // "POSSaleTypeDesc",
-  // "InputTypeLabel",
-  // "InputType",
-  // "StoreName",
-  // "UserName",
-  // "CategoryID",
-  // "POSSectionName",
-  // "TerminalEnteredID",
-  // "TerminalEnteredName",
-  // "ClassName",
-  // "BrandName",
-  // "TxnHour",
-  // "TerminalFinalisedName",
-  // "Amount",
-  // "BundlePrice",
-  // "NetPrice",
-  // "Sold",
-  // "HeaderBitMask",
-  // "ClassID",
-  // "POSAreaID",
-  // "LastUpdate",
-  // "LineID",
-  // "UserID",
-  // "BundleID",
-  // "PLUID",
-  // "NetAmount",
-  // "POSSectionID",
-  // "POSAreaName",
-  // "ParentPLUCode",
-  // "ParentPLUID",
-  // "Price",
-  // "HeaderID",
-  // "TxnTime",
-  // "SaleTypeID",
-  // "RealTimeTxn",
-  // "StoreID",
-  // "TxnDate",
-  // "TxnCount",
-  // "TerminalFinalisedID",
-  // "UTCLastUpdate",
-  // "TxnFifteenMinute",
-  // "TxnHalfHour",
 ];
 const IDX = {
   SaleID: 0,
@@ -445,7 +399,7 @@ const readSettingsAndComputeDates = async () => {
     }
     // If last run is within last 30 days, start from next day
     else if (lastRun < yesterday) {
-      startDate = addDays(lastRun, 1);
+      startDate = lastRun;
     }
 
     // Generate dates up to yesterday

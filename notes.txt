@@ -32,7 +32,7 @@ ZIP file password: ~ja19co65
 The program will fetch yesterday sales by default. 
 Additional dates can be added too eg: 2025-12-25 or if range, 2025-12-10,2025-12-20
 
-Last run date will be stored in settings file. If the the last date is not yesterday, the program will fetch the missing dates within 30 days.
+The last run date is stored in the settings file. If the last run date is not yesterday, the program will fetch any missing data starting from the last run date or from 30 days ago, whichever is more recent.
 
 The exe is built with node v18.16.0, axios version is 0.21.4, Only this version of axios is working well with pkg
 

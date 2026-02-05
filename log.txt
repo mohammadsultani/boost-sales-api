@@ -1,11 +1,13 @@
-2/4/2026, 3:15:51 PM - The program started running.
+2/5/2026, 3:21:49 PM - The program started running.
 
-2/4/2026, 3:15:51 PM - Preparing to fetch sales data for the following dates:
-2026-01-26, 2026-02-03
+2/5/2026, 3:21:49 PM - Preparing to fetch sales data for the following dates:
+2026-02-02, 2026-02-03, 2026-02-04
 
-2/4/2026, 3:15:52 PM - Sales data fetched successfully for 2026-01-26. (Number of Bills: 46)
+2/5/2026, 3:21:50 PM - Sales data fetched successfully for 2026-02-02. (Number of Bills: 75)
 
-2/4/2026, 3:15:53 PM - Sales data fetched successfully for 2026-02-03. (Number of Bills: 92)
+2/5/2026, 3:21:50 PM - Sales data fetched successfully for 2026-02-03. (Number of Bills: 92)
 
-2/4/2026, 3:15:53 PM - The program finished running.
+2/5/2026, 3:21:51 PM - Sales data fetched successfully for 2026-02-04. (Number of Bills: 78)
+
+2/5/2026, 3:21:51 PM - The program finished running.
 
